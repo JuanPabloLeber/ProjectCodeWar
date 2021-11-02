@@ -42,9 +42,11 @@ export default {};
 }
 .smallHeader {
   color: white;
-  font-size: 4.75em;
+  font-size: 4.5em;
   margin-top: 2vh;
   animation: downComing 2.5s;
+  padding-left: 20px;
+  margin-right: 20px;
 }
 
 @keyframes downComing {
@@ -70,7 +72,7 @@ export default {};
 .smallButton {
   width: 200px;
   height: 60px !important;
-  margin-top: 45vh;
+  margin-top: 40vh;
   background-color: rgb(0, 0, 0) !important;
   font-size: 1.5em;
   animation: appear 2s, shake 5s linear 3s infinite;
