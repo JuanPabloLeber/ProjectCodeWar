@@ -18,8 +18,10 @@
         :cols="$vuetify.breakpoint.mdAndUp ? 5 : 10"
         :class="[$vuetify.breakpoint.mdAndUp ? 'master' : '']"
       >
-        <h2>Do you want to become a master?</h2>
-        <p>
+        <h2 :class="$vuetify.breakpoint.mdAndUp ? 'bigH2' : 'smallH2'">
+          Do you want to become a master?
+        </h2>
+        <p :class="$vuetify.breakpoint.mdAndUp ? 'bigP' : 'smallP'">
           Doing these katas will give you unique abilities to improve your
           coding skills. Katas are coding excercies of different difficulties
           where you will be challanged to use your coding knowledge and
@@ -82,14 +84,28 @@ export default {
   justify-content: center;
   height: 40vh;
 }
-h2 {
+.bigH2 {
+  font-size: 3em;
+  font-weight: bolder;
+  display: flex;
+  text-align: left;
+  padding-left: 20px;
+}
+.smallH2 {
   font-size: xx-large;
   font-weight: bolder;
   display: flex;
   text-align: left;
   padding-left: 20px;
 }
-p {
+.bigP {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  text-align: left;
+  font-size: 1.5em;
+}
+.smallP {
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
@@ -118,7 +134,7 @@ p {
 }
 
 .master {
-  margin-top: 100px;
+  margin-top: 70px;
   margin-right: -50px;
   margin-bottom: 80px;
 }
