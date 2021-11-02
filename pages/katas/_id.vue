@@ -61,9 +61,11 @@ export default {
   methods: {
     checkFunction: async function () {
       try {
-        const kataTests = this.kata.tests;
+        const kataTests = JSON.parse(JSON.stringify(this.kata.tests));
+        const userInput = this.input;
+
         for (let i = 0; i < kataTests.length; i++) {
-          const test = eval(this.input);
+          const test = eval(userInput);
           if (
             JSON.stringify(test(...kataTests[i].input)) !==
             JSON.stringify(kataTests[i].output)

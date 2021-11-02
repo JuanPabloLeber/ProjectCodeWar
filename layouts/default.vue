@@ -65,6 +65,7 @@ export default {
 <style scoped>
 .app-bg {
   background-color: rgb(78, 78, 78) !important;
+  max-height: 100vh;
 }
 
 .v-app-bar {

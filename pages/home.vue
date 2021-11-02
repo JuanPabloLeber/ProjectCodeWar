@@ -2,15 +2,22 @@
   <v-container>
     <v-row class="title">
       <v-col>
-        <h1 class="titleText">KATA TIME</h1>
+        <h1
+          :class="$vuetify.breakpoint.mdAndUp ? 'titleText' : 'smallTitleText'"
+        >
+          KATA TIME
+        </h1>
         <div>
           <v-divider class="divider"></v-divider>
         </div>
       </v-col>
     </v-row>
-    <v-row class="title">
-      <v-col></v-col>
-      <v-col cols="4" class="master">
+    <v-row :class="$vuetify.breakpoint.mdAndUp ? 'title2' : 'title2Small'">
+      <v-col v-if="$vuetify.breakpoint.mdAndUp"></v-col>
+      <v-col
+        :cols="$vuetify.breakpoint.mdAndUp ? 5 : 10"
+        :class="[$vuetify.breakpoint.mdAndUp ? 'master' : '']"
+      >
         <h2>Do you want to become a master?</h2>
         <p>
           Doing these katas will give you unique abilities to improve your
@@ -19,14 +26,16 @@
           abilities to solve these coding puzzles
         </p>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="5" v-if="$vuetify.breakpoint.mdAndUp">
         <img class="image" src="../assets/ninja.png" />
       </v-col>
-      <v-col></v-col>
+      <v-col v-if="$vuetify.breakpoint.mdAndUp"></v-col>
     </v-row>
     <v-row class="cardTitle">
       <v-col>
-        <h1>Try one of the katas below</h1>
+        <h1 :class="$vuetify.breakpoint.mdAndUp ? 'title3' : 'title3Small'">
+          Try one of these katas!
+        </h1>
       </v-col>
     </v-row>
     <v-row class="cards">
@@ -50,14 +59,53 @@ export default {
 
 <style scoped>
 .title {
-  margin: 0;
+  margin-top: 2vh;
   display: flex;
   flex-direction: row;
   text-align: center;
+  justify-content: center;
 }
 
+.title2 {
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  height: 50vh;
+}
+.title2Small {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  height: 40vh;
+}
+h2 {
+  font-size: xx-large;
+  font-weight: bolder;
+  display: flex;
+  text-align: left;
+  padding-left: 20px;
+}
+p {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  text-align: left;
+}
+.title3Small {
+  margin-top: 20px;
+  font-size: xx-large;
+}
 .titleText {
   font-size: 4em;
+  line-height: 1em;
+  margin-top: 10px;
+}
+.smallTitleText {
+  font-size: 3em;
   line-height: 1em;
   margin-top: 10px;
 }
