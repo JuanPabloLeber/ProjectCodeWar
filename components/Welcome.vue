@@ -2,10 +2,17 @@
   <v-container fill-height>
     <v-row>
       <v-col>
-        <h1 class="header">Welcome to Dromos</h1>
-        <div>
+        <h1 :class="$vuetify.breakpoint.mdAndUp ? 'header' : 'smallHeader'">
+          Welcome to Dromos
+        </h1>
+        <div class="buttonDiv">
           <nuxt-link to="home">
-            <v-btn class="button" elevation="3" dark>Let's start</v-btn>
+            <v-btn
+              :class="$vuetify.breakpoint.mdAndUp ? 'button' : 'smallButton'"
+              elevation="3"
+              dark
+              >Let's start</v-btn
+            >
           </nuxt-link>
         </div>
       </v-col>
@@ -33,6 +40,12 @@ export default {};
   margin-top: 10vh;
   animation: downComing 2.5s;
 }
+.smallHeader {
+  color: white;
+  font-size: 4.75em;
+  margin-top: 2vh;
+  animation: downComing 2.5s;
+}
 
 @keyframes downComing {
   0% {
@@ -50,6 +63,16 @@ export default {};
   margin-top: 50vh;
   background-color: rgb(0, 0, 0) !important;
   font-size: 1.75em;
+  animation: appear 2s, shake 5s linear 3s infinite;
+  backface-visibility: hidden;
+  border: solid 1px white;
+}
+.smallButton {
+  width: 200px;
+  height: 60px !important;
+  margin-top: 45vh;
+  background-color: rgb(0, 0, 0) !important;
+  font-size: 1.5em;
   animation: appear 2s, shake 5s linear 3s infinite;
   backface-visibility: hidden;
   border: solid 1px white;
