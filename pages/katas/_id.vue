@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="kata" fill-height fluid>
+  <v-container v-if="kata">
     <v-row class="titleRow">
       <v-col>
         <h1>It's time to unleash the beast!</h1>
@@ -92,7 +92,7 @@ export default {
 <style scoped>
 .titleRow {
   margin-top: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -100,9 +100,10 @@ export default {
 }
 .kataRow {
   height: 100%;
-  padding-left: 10vw;
-  padding-right: 10vw;
   display: flex;
+  margin: 0;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 .kataCard {
   height: 500px;
@@ -110,11 +111,11 @@ export default {
 }
 .kataCardSmall {
   height: fit-content;
-  min-width: 300px;
+  min-width: 275px;
 }
 .kataCard1 {
   height: 500px;
-  min-width: 300px;
+  min-width: 275px;
 }
 
 .correctAnswer {
