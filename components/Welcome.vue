@@ -45,8 +45,6 @@ export default {};
   font-size: 4.5em;
   margin-top: 2vh;
   animation: downComing 2.5s;
-  padding-left: 20px;
-  margin-right: 20px;
 }
 
 @keyframes downComing {

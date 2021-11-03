@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="kata">
+  <v-container v-if="kata" fill-height fluid>
     <v-row class="titleRow">
       <v-col>
         <h1>It's time to unleash the beast!</h1>
@@ -7,7 +7,9 @@
     </v-row>
     <v-row class="kataRow">
       <v-col>
-        <v-card class="kataCard">
+        <v-card
+          :class="$vuetify.breakpoint.mdAndUp ? 'kataCard' : 'kataCardSmall'"
+        >
           <v-card-title>
             {{ kata.title }}
           </v-card-title>
@@ -17,17 +19,11 @@
         </v-card>
       </v-col>
       <v-col>
-        <v-card class="kataCard">
+        <v-card class="kataCard1">
           <v-card-title> Solve the kata </v-card-title>
           <v-card-subtitle> Write your answer right below </v-card-subtitle>
-          <v-textarea
-            v-model="input"
-            class="answerArea"
-            no-resize
-            rows="9"
-            outlined
-          ></v-textarea>
-          <v-btn v-on:click="checkFunction" light>Try answer</v-btn>
+          <textarea v-model="content" id="editor"></textarea>
+          <v-btn v-on:click="checkFunction" light>Submit</v-btn>
         </v-card>
       </v-col>
     </v-row>
@@ -48,21 +44,32 @@
 </template>
 
 <script>
+import * as CodeMirror from "codemirror";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/dracula.css";
+import "codemirror/mode/javascript/javascript.js";
+
 export default {
   data() {
     return {
-      input: `() => {
-        //Write your code here!
-      }`,
+      content: `() => {\n//Write your code here!\n} `,
       kata: this.$store.getters.getKataById(this.$route.params.id),
       result: "",
     };
+  },
+  mounted() {
+    this.cm = CodeMirror.fromTextArea(document.getElementById("editor"), {
+      lineNumbers: true,
+      theme: "dracula",
+      mode: "javascript",
+      lineWrapping: true,
+    });
   },
   methods: {
     checkFunction: async function () {
       try {
         const kataTests = JSON.parse(JSON.stringify(this.kata.tests));
-        const userInput = this.input;
+        const userInput = this.cm.getValue();
 
         for (let i = 0; i < kataTests.length; i++) {
           const test = eval(userInput);
@@ -92,22 +99,24 @@ export default {
   font-size: 1.5em;
 }
 .kataRow {
-  height: 50vh;
+  height: 100%;
   padding-left: 10vw;
   padding-right: 10vw;
+  display: flex;
 }
 .kataCard {
-  height: 50vh;
+  height: 500px;
+  min-width: 300px;
 }
-.answerArea {
-  padding-left: 20px;
-  padding-right: 20px;
+.kataCardSmall {
+  height: fit-content;
+  min-width: 300px;
 }
-.v-btn {
-  position: absolute;
-  bottom: 15px;
-  left: 20px;
+.kataCard1 {
+  height: 500px;
+  min-width: 300px;
 }
+
 .correctAnswer {
   margin-top: 50px;
   margin-bottom: 20px;
@@ -116,6 +125,12 @@ export default {
   text-align: center;
   font-size: 1.5em;
   color: green;
+}
+
+.v-btn {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
 }
 .incorrectAnswer {
   margin-top: 50px;

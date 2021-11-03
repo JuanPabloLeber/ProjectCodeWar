@@ -6,6 +6,7 @@ export const state = () => ({
       difficulty: "8 Kyu",
       description:
         "Write a function called repeatStr which repeats the given string string exactly n times.",
+      examples: ["[I,5] ==> IIIII"],
       tests: [
         {
           input: ["I", 5],

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main class="app-bg">
+    <v-main class="app-bg" fluid fill-height>
       <v-app-bar dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -20,7 +20,13 @@
           <v-icon>mdi-dots-vertical</v-icon>
         </v-btn>
       </v-app-bar>
-      <v-navigation-drawer v-model="drawer" absolute bottom temporary>
+      <v-navigation-drawer
+        v-if="drawer"
+        v-model="drawer"
+        absolute
+        bottom
+        temporary
+      >
         <v-list nav dense>
           <v-list-item-group
             v-model="group"
@@ -65,7 +71,7 @@ export default {
 <style scoped>
 .app-bg {
   background-color: rgb(78, 78, 78) !important;
-  max-height: 100vh;
+  max-height: 100%;
 }
 
 .v-app-bar {
