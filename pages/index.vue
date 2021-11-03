@@ -1,18 +1,22 @@
 <template>
-  <v-container fill-height>
+  <v-container class="mainContainer">
     <Welcome />
-    <video class="videoBackground" src="../assets/Background.mp4" autoplay loop></video>
+    <video
+      class="videoBackground"
+      src="../assets/Background.mp4"
+      autoplay
+      loop
+    ></video>
   </v-container>
 </template>
 
 <script>
 export default {
-  layout: "landing"
-  }
+  layout: "landing",
+};
 </script>
 
 <style scoped>
-
 .videoBackground {
   width: 100vw;
   height: 100vh;
@@ -24,5 +28,4 @@ export default {
   bottom: 0;
   z-index: -2;
 }
-
 </style>

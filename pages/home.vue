@@ -78,6 +78,7 @@ export default {
 }
 .title2Small {
   margin-top: 10vh;
+  margin-bottom: 10vh;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -156,7 +157,10 @@ p {
   line-height: 4em;
   font-size: 1.5em;
 }
-
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
 .cards {
   display: flex;
   flex-direction: row;

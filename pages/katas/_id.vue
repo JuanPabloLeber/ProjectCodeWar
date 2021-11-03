@@ -28,7 +28,7 @@
       </v-col>
     </v-row>
     <v-row
-      v-bind:class="
+      :class="
         result === 'All tests passed' ? 'correctAnswer' : 'incorrectAnswer'
       "
     >
@@ -93,11 +93,14 @@ export default {
 .titleRow {
   margin-top: 30px;
   margin-bottom: 50px;
+  margin-left: 0;
+  margin-right: 0;
   display: flex;
   flex-direction: row;
   text-align: center;
   font-size: 1.5em;
 }
+
 .kataRow {
   height: 100%;
   display: flex;
@@ -121,6 +124,8 @@ export default {
 .correctAnswer {
   margin-top: 50px;
   margin-bottom: 20px;
+  margin-left: 0;
+  margin-right: 0;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -136,6 +141,8 @@ export default {
 .incorrectAnswer {
   margin-top: 50px;
   margin-bottom: 20px;
+  margin-left: 0;
+  margin-right: 0;
   display: flex;
   flex-direction: row;
   text-align: center;

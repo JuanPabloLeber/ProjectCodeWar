@@ -1,6 +1,6 @@
 <template>
-  <v-app fluid fill-height>
-    <v-main class="app-bg" fluid fill-height>
+  <v-app>
+    <v-main class="app-bg">
       <v-app-bar dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 

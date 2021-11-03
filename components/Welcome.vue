@@ -1,5 +1,5 @@
 <template>
-  <v-container fill-height>
+  <v-container>
     <v-row>
       <v-col>
         <h1 :class="$vuetify.breakpoint.mdAndUp ? 'header' : 'smallHeader'">
