@@ -27,7 +27,6 @@ export default {};
 <style lang="scss" scoped>
 .row {
   margin: 0;
-  width: 80vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,10 +40,12 @@ export default {};
   animation: downComing 2.5s;
 }
 .smallHeader {
-  color: white;
-  font-size: 4.5em;
   margin-top: 2vh;
+  color: white;
+  font-size: 4em;
   animation: downComing 2.5s;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 @keyframes downComing {

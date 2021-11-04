@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mainContainer">
+  <v-container>
     <Welcome />
     <video
       class="videoBackground"
@@ -27,5 +27,8 @@ export default {
   top: 0;
   bottom: 0;
   z-index: -2;
+}
+.container {
+  padding: 0;
 }
 </style>
